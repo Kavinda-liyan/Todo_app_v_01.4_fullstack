@@ -5,23 +5,59 @@ import { useState } from "react";
 const AddTodo = () => {
   const [title, setTitle] = useState("");
   const [todo, setTodo] = useState("");
+  const [error, setError] = useState(null);
 
   const handleTitleChange = (e) => {
-    const newTitle=e.target.value;
+    const newTitle = e.target.value;
     setTitle(newTitle);
     console.log(title);
   };
- 
+
+  const handleTodoChange = (e) => {
+    const newTodo = e.target.value;
+    setTodo(newTodo);
+    console.log(todo);
+  };
+  
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    const newTodo = {
+      title,
+      todo,
+    };
+
+    const response = await fetch("/api/todos", {
+      method: "POST",
+      body: JSON.stringify(newTodo),
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+
+    const data = await response.json();
+    if (!response.ok) {
+      setError(data.error);
+    } else {
+      setTitle("");
+      setTodo("");
+      setError(null);
+      console.log("Todo added", data);
+    }
+  };
+
   return (
     <div className="w-full px-5 py-2 my-1 primary-txt">
-      <div className="border-l-[1px] p-5">
+      <div className="bg-white border-[0.5px] border-neutral-200 shadow-md rounded-md p-5">
         <h1 className=" font-semibold">Add Todo</h1>
-        <form className="mt-5">
+        <form className="mt-5" onSubmit={handleSubmit}>
           <div className="mt-2 flex flex-col">
             <label>Todo title :</label>
             <input
               type="text"
               onChange={handleTitleChange}
+              value={title}
               className="border-[1.5px] border-neutral-500 rounded-md w-full p-1 text-neutral-600"
             ></input>
           </div>
@@ -29,8 +65,8 @@ const AddTodo = () => {
             <label>Todo :</label>
             <textarea
               className="border-[1.5px] border-neutral-500 rounded-md w-full p-1"
-              id="message"
-              name="message"
+              onChange={handleTodoChange}
+              value={todo}
               rows="5"
               cols="30"
             ></textarea>

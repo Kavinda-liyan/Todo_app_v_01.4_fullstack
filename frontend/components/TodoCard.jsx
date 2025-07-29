@@ -3,8 +3,8 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const TodoCard = ({title,description}) => {
   return (
-    <div className="w-full px-5 py-2 my-1">
-      <div className="w-full min-h-24 rounded-md bg-white shadow-md border-[1.5px] border-teal-300 scale-100 hover:scale-[98%] hover:border-[2px] hover:cursor-pointer hover:duration-150 duration-150  hover:shadow-lg ">
+    <div className="w-full px-5 py-2 my-1 ">
+      <div className="w-full min-h-24 rounded-md border-[0.5px] border-neutral-200 bg-white shadow-md  scale-100 hover:scale-[98%]  hover:cursor-pointer hover:duration-150 duration-150  hover:shadow-lg ">
         <div className="grid grid-cols-12">
           {/* text-content */}
           <div className="col-span-11 mx-1 px-2 py-2">
@@ -13,21 +13,21 @@ const TodoCard = ({title,description}) => {
                 icon={faBookmark}
                 className="flex text-amber-500"
               />
-              <h1 className="text-[1.1rem] font-semibold primary-txt">
+              <h1 className="max-2xl:text-[1.1rem] max-md:text-[0.75rem] font-semibold primary-txt text-teal-600">
                 {title}
               </h1>
             </div>
             <div>
-              <p className="pl-[2px] text-neutral-900 secondery-txt text-[1rem] my-1">
+              <p className="pl-[2px] text-neutral-900 secondery-txt max-2xl:text-[1rem] max-md:text-[0.75rem] my-1">
                 {description}
               </p>
             </div>
           </div>
 
           {/* action-content */}
-          <div className="col-span-1 mx-1 px-2 py-4">
+          <div className="col-span-1 mx-1 px-1 py-4">
             <div className="flex items-end justify-center h-full">
-              <button className="text-neutral-500 hover:text-neutral-800 hover:duration-150 duration-150 cursor-pointer">
+              <button className="max-2xl:text-[1rem] max-md:text-[0.7rem] text-white bg-teal-500 shadow-md rounded-md max-2xl:w-8 max-2xl:h-8 h-6 w-6  cursor-pointer p-1 hover:duration-150 duration-150 hover:bg-teal-600 hover:text-neutral-300">
                 <FontAwesomeIcon icon={faTrash} />
               </button>
             </div>

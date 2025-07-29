@@ -5,9 +5,9 @@ const Navbar = () => {
     <header className="h-[50px] bg-slate-800 z-50 shadow-md">
       <nav className="h-full">
         <Link to={"/"}>
-          <div className="h-full flex items-center justify-start ml-10 mr-10 text-neutral-100 font-secondery text-2xl">
+          <div className="h-full flex items-center justify-start max-2xl:ml-16 max-2xl:mr-10 text-neutral-100 font-secondery text-2xl px-5">
             <h1 className="text-teal-300 primary-txt">
-              <span className="text-neutral-500 font-semibold">.</span>Todo
+              <span className="text-amber-500 font-bold">.</span>Todo
               <span className="text-neutral-500 font-semibold">APP</span>
             </h1>
           </div>
