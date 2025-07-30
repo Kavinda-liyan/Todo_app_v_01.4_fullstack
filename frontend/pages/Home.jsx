@@ -19,7 +19,7 @@ const Home = () => {
     fetchTodos();
   }, []);
   return (
-    <section className="h-[calc(100vh-50px)] bg-neutral-200/40">
+    <section className="h-[calc(100vh-50px)] bg-neutral-200/40 dark:bg-slate-700">
       <div className="max-[110rem]:ml-40 max-[120rem]:mr-40 max-2xl:ml-16 max-2xl:mr-16 max-xl:ml-16  max-lg:ml-10 max-md:ml-1 max-md:mr-1 ">
         <div className="grid grid-cols-12 max-md:">
           <div className="col-span-8 max-md:col-span-12 mt-3 h-[calc(100vh-80px)] overflow-y-scroll scrollbar-thin scrollbar-thumb-gray-900 scrollbar-track-gray-100">
