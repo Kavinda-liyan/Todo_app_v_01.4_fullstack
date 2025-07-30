@@ -24,7 +24,7 @@ const Home = () => {
         <div className="grid grid-cols-12 max-md:">
           <div className="col-span-8 max-md:col-span-12 mt-3 h-[calc(100vh-80px)] overflow-y-scroll scrollbar-thin scrollbar-thumb-gray-900 scrollbar-track-gray-100">
             {todos && todos.map((todo)=>(
-              <TodoCard key={todo._id} title={todo.title} description={todo.todo}/>
+              <TodoCard key={todo._id} title={todo.title} description={todo.todo} date={todo.createdAt}/>
             ))}
             
           </div>

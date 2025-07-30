@@ -1,7 +1,7 @@
 import { faBookmark, faTrash } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-const TodoCard = ({title,description}) => {
+const TodoCard = ({title,description,date}) => {
   return (
     <div className="w-full px-5 py-2 my-1 ">
       <div className="w-full min-h-24 rounded-md border-[0.5px] border-neutral-200 bg-white shadow-md  scale-100 hover:scale-[98%]  hover:cursor-pointer hover:duration-150 duration-150  hover:shadow-lg ">
@@ -20,6 +20,11 @@ const TodoCard = ({title,description}) => {
             <div>
               <p className="pl-[2px] text-neutral-900 secondery-txt max-2xl:text-[1rem] max-md:text-[0.75rem] my-1">
                 {description}
+              </p>
+            </div>
+            <div>
+              <p className="pl-[2px] text-teal-700 secondery-txt max-2xl:text-[0.65rem] max-md:text-[0.5rem] my-1">
+                {date}
               </p>
             </div>
           </div>

@@ -4,7 +4,7 @@ import mongoose from "mongoose";
 
 //get all workouts
 const getTodos = async (req, res) => {
-  const todos = await Todo.find({}).sort({ createdat: 1 });
+  const todos = await Todo.find({}).sort({ createdAt: -1 });
 
   res.status(200).json(todos);
 };

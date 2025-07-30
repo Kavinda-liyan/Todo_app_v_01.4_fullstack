@@ -50,7 +50,7 @@ const AddTodo = () => {
   return (
     <div className="w-full px-5 py-2 my-1 primary-txt">
       <div className="bg-white border-[0.5px] border-neutral-200 shadow-md rounded-md p-5">
-        <h1 className=" font-semibold">Add Todo</h1>
+        <h1 className=" font-semibold text-teal-600">Add New Todo</h1>
         <form className="mt-5" onSubmit={handleSubmit}>
           <div className="mt-2 flex flex-col">
             <label>Todo title :</label>
@@ -58,13 +58,13 @@ const AddTodo = () => {
               type="text"
               onChange={handleTitleChange}
               value={title}
-              className="border-[1.5px] border-neutral-500 rounded-md w-full p-1 text-neutral-600"
+              className="border-[1px] border-teal-500 rounded-md w-full p-1 text-neutral-600"
             ></input>
           </div>
           <div className="mt-2  flex flex-col">
             <label>Todo :</label>
             <textarea
-              className="border-[1.5px] border-neutral-500 rounded-md w-full p-1"
+              className="border-[1px] border-teal-500 rounded-md w-full p-1"
               onChange={handleTodoChange}
               value={todo}
               rows="5"
