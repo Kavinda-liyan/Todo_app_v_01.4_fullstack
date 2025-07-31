@@ -34,6 +34,7 @@ const createTodo = async (req, res) => {
     const todos = await Todo.create({
       title,
       todo,
+      completed: false,
     });
     res.status(200).json(todos);
   } catch (error) {
@@ -78,4 +79,19 @@ const updateTodo = async (req, res) => {
   res.status(200).json(todo);
 };
 
-export { createTodo, getTodos, getTodo, deleteTodo,updateTodo };
+//complete a todo
+const completeTodo = async (req, res) => {
+  const { id } = req.params;
+  if (!mongoose.Types.ObjectId.isValid(id)) {
+    return res.status(404).json({ error: "No such a todo" });
+  }
+  const todo = await Todo.findByIdAndUpdate(
+    { _id: id },
+    {
+      completed: true,
+    }
+  );
+  res.status(200).json(todo);
+};
+
+export { createTodo, getTodos, getTodo, deleteTodo, updateTodo,completeTodo };

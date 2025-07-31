@@ -6,6 +6,7 @@ import {
   getTodo,
   getTodos,
   updateTodo,
+  completeTodo
 } from "../controllers/todoController.js";
 
 const router = express.Router();
@@ -24,5 +25,7 @@ router.delete("/:id", deleteTodo);
 
 //Update a todo
 router.patch("/:id", updateTodo);
+//Complete a todo
+router.patch("/complete/:id", completeTodo);
 
 export default router;

@@ -1,6 +1,7 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Navbar from "../components/Navbar";
 import Home from "../pages/Home";
+import CompletedTodo from "../pages/CompletedTodo";
 
 function App() {
   return (
@@ -8,7 +9,8 @@ function App() {
       <BrowserRouter>
         <Navbar />
         <Routes>
-          <Route path="/" element={<Home/>}/>
+          <Route index path="/" element={<Home/>}/>
+          <Route path="/completed" element={<CompletedTodo/>}/>
         </Routes>
       </BrowserRouter>
     </>

@@ -1,8 +1,10 @@
 import { faPlus } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useState } from "react";
+import { useTodoContext } from "../hooks/useTodoContext";
 
 const AddTodo = () => {
+  const { dispatch } = useTodoContext();
   const [title, setTitle] = useState("");
   const [todo, setTodo] = useState("");
   const [error, setError] = useState(null);
@@ -10,18 +12,20 @@ const AddTodo = () => {
   const handleTitleChange = (e) => {
     const newTitle = e.target.value;
     setTitle(newTitle);
-    console.log(title);
   };
 
   const handleTodoChange = (e) => {
     const newTodo = e.target.value;
     setTodo(newTodo);
-    console.log(todo);
   };
-  
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
+    if(!title||!todo){
+      setError("Title and Todo cannot be empty");
+      return;
+    }
 
     const newTodo = {
       title,
@@ -43,14 +47,16 @@ const AddTodo = () => {
       setTitle("");
       setTodo("");
       setError(null);
-      console.log("Todo added", data);
+      dispatch({ type: "CREATE_TODO", payload: data });
     }
   };
 
   return (
     <div className="w-full px-5 py-2 my-1 primary-txt">
-      <div className="bg-white dark:bg-slate-800 border-[0.5px] border-neutral-200 dark:border-slate-600 shadow-md rounded-md p-5 dark:text-teal-100">
-        <h1 className=" font-semibold text-teal-600 dark:text-teal-100">Add New Todo</h1>
+      <div className="bg-white dark:bg-slate-800 border-[0.5px] border-neutral-200 dark:border-slate-700 shadow-md rounded-md p-5 dark:text-teal-100">
+        <h1 className=" font-semibold text-teal-600 dark:text-teal-100">
+          Add New Todo
+        </h1>
         <form className="mt-5" onSubmit={handleSubmit}>
           <div className="mt-2 flex flex-col">
             <label>Todo title :</label>
@@ -58,16 +64,16 @@ const AddTodo = () => {
               type="text"
               onChange={handleTitleChange}
               value={title}
-              className="border-[1px] border-teal-500 dark:border-slate-500 rounded-md w-full p-1 "
+              className="border-[1px] border-teal-500 dark:border-slate-700 dark:bg-slate-700 rounded-md w-full p-1 "
             ></input>
           </div>
           <div className="mt-2  flex flex-col">
             <label>Todo :</label>
             <textarea
-              className="border-[1px] border-teal-500 dark:border-slate-500 rounded-md w-full p-1"
+              className="border-[1px] border-teal-500 dark:border-slate-700 dark:bg-slate-700 rounded-md w-full p-1"
               onChange={handleTodoChange}
               value={todo}
-              rows="5"
+              rows="3"
               cols="30"
             ></textarea>
           </div>
