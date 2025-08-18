@@ -20,7 +20,7 @@ const Home = () => {
     fetchTodos();
   }, []);
   return (
-    <section className="h-[calc(100vh-60px)] bg-neutral-200 dark:bg-slate-700">
+    <section className="min-h-[calc(100vh-60px)] bg-neutral-200 dark:bg-slate-700">
       <div className="max-[110rem]:ml-40 max-[120rem]:mr-40 max-2xl:ml-16 max-2xl:mr-16 max-xl:ml-16  max-lg:ml-10 max-md:ml-1 max-md:mr-1 z-10">
         <div className="grid grid-cols-12 max-md:">
           <div

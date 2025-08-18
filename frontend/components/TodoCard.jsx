@@ -63,14 +63,14 @@ const TodoCard = ({ _id, title, description, date, completed }) => {
             <div className="flex gap-2 items-end justify-center h-full">
               <button
                 onClick={handleDelete}
-                className="max-2xl:text-[0.75rem] max-md:text-[0.7rem] text-white bg-red-600 shadow-md rounded-md max-2xl:w-6 max-2xl:h-6 h-6 w-6  cursor-pointer p-1 hover:duration-150 duration-150 hover:bg-teal-600 hover:text-neutral-300"
+                className="max-2xl:text-[0.75rem] max-md:text-[0.7rem] text-white bg-red-600 shadow-md rounded-md max-2xl:w-6 max-2xl:h-6 h-6 w-6  max-[2160px]:h-8 max-[2160px]:w-8 cursor-pointer p-1 hover:duration-150 duration-150 hover:bg-teal-600 hover:text-neutral-300"
               >
                 <FontAwesomeIcon icon={faTrash} />
               </button>
               <button
                 disabled={completed}
                 onClick={handleComplete}
-                className={`max-2xl:text-[0.75rem] max-md:text-[0.7rem] text-white bg-green-600 shadow-md rounded-md max-2xl:w-6 max-2xl:h-6 h-6 w-6  cursor-pointer p-1 hover:duration-150 duration-150 hover:bg-teal-600 hover:text-neutral-300 ${
+                className={`max-2xl:text-[0.75rem] max-md:text-[0.7rem] text-white bg-green-600 shadow-md rounded-md max-2xl:w-6 max-[2160px]:h-8 max-[2160px]:w-8 max-2xl:h-6 h-6 w-6  cursor-pointer p-1 hover:duration-150 duration-150 hover:bg-teal-600 hover:text-neutral-300 ${
                   completed ? "opacity-50" : "opacity-100"
                 }`}
               >

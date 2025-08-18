@@ -3,12 +3,19 @@ import { useContext, useState } from "react";
 import { ThemeContext } from "../contexts/ThemeContext";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars } from "@fortawesome/free-solid-svg-icons";
+import { useLogout } from "../hooks/useLogout";
 
 const Navbar = () => {
   const { theme, toggleTheme } = useContext(ThemeContext);
   const [toggleMenu, setToggleMenu] = useState(false);
   const handleToggle = () => {
     setToggleMenu((prev) => !prev);
+  };
+
+  const { logout } = useLogout();
+
+  const handleLogout = () => {
+    logout();
   };
 
   const navLinks = (
@@ -18,10 +25,16 @@ const Navbar = () => {
           Home
         </p>
       </Link>
+      <button
+        onClick={handleLogout}
+        className="p-1 bg-teal-500 rounded-md text-sm primary-txt text-white shadow-md hover:bg-teal-600 duration-150 hover:cursor-pointer"
+      >
+        Logout
+      </button>
 
-      <Link to={"/completed"} className="mx-2">
+      <Link to={"/login"} className="mx-2">
         <p className="primary-txt dark:text-teal-100 dark:hover:text-teal-300 text-neutral-800 hover:text-neutral-500 text-sm">
-          Completed
+          Login
         </p>
       </Link>
     </>
@@ -63,12 +76,13 @@ const Navbar = () => {
                 <FontAwesomeIcon icon={faBars} />
               </button>
             </div>
-            {toggleMenu && <div className="w-[100vw] h-[100vh] absolute bg-neutral-100 text-amber-50 z-40 top-0 left-0">
-              <div className="flex items-center justify-center h-full flex-col gap-10">
-                {navLinks}
+            {toggleMenu && (
+              <div className="w-[100vw] h-[100vh] absolute bg-neutral-100 text-amber-50 z-40 top-0 left-0">
+                <div className="flex items-center justify-center h-full flex-col gap-10">
+                  {navLinks}
                 </div>
-              
-              </div>}
+              </div>
+            )}
           </div>
         </div>
       </nav>

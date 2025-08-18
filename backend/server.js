@@ -1,6 +1,7 @@
 import express from "express";
 import dotenv from "dotenv";
 import todoRoutes from "./routes/todoRoutes.js";
+import userRoutes from "./routes/userRoutes.js";
 import mongoose from "mongoose";
 
 dotenv.config();
@@ -14,6 +15,7 @@ app.use(express.json());
 
 //routes
 app.use("/api/todos", todoRoutes);
+app.use("/api/user", userRoutes);
 
 //connect to db
 mongoose
